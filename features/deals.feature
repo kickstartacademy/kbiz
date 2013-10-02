@@ -12,10 +12,10 @@ Feature: Deals
 
   Scenario: Team member misses out name
     When I create a deal without a name
-    Then I see an error
+    Then I get an error
     And the deal isn't created
 
   Scenario: Team member misses out tracking identifier
     When I create a deal without a tracking identifier
-    Then I see an error
+    Then I get an error
     And the deal isn't created
