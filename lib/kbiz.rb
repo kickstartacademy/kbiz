@@ -1,6 +1,7 @@
 require 'kbiz/initializer'
 
 require 'kbiz/deal'
+require 'kbiz/deals_list'
 require 'kbiz/role'
 require 'kbiz/deal_type'
 require 'kbiz/money'

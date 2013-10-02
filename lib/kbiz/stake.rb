@@ -16,11 +16,11 @@ module Kbiz
     end
 
     def -(other)
-      Stake.new(@percentage_hundredths - other.percentage_hundredths)
+      self.class.new(@percentage_hundredths - other.percentage_hundredths)
     end
 
     def +(other)
-      Stake.new(@percentage_hundredths + other.percentage_hundredths)
+      self.class.new(@percentage_hundredths + other.percentage_hundredths)
     end
 
     def slice_of(money)
