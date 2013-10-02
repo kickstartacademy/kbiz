@@ -2,10 +2,6 @@ def new_deal_type
   @deal_type = Kbiz::DealType.new("Public course", {})
 end
 
-def stake_from_percentage(percentage)
-  Kbiz::Stake.new(percentage.to_i * 100)
-end
-
 def add_a_role(stake)
   role = Kbiz::Role.new("Co-ordinator", "basic description of role")
   @deal_type = @deal_type.add_role(role, stake)

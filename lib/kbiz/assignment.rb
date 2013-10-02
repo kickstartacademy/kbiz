@@ -1,11 +1,16 @@
 module Kbiz
   class VacantAssignment
-    include Kbiz.initializer(:role)
+    def ==(other)
+      other.kind_of?(VacantAssignment)
+    end
+  end
 
-    attr :role
+  class Assignment
+    include Kbiz.initializer(:team_member)
+    attr :team_member
 
     def ==(other)
-      @role == other.role
+      other.team_member == @team_member
     end
   end
 end

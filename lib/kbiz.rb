@@ -6,5 +6,6 @@ require 'kbiz/deal_type'
 require 'kbiz/money'
 require 'kbiz/stake'
 require 'kbiz/assignment'
+require 'kbiz/team_member'
 
 require 'kbiz/app'
