@@ -1,5 +1,9 @@
+def deal_with_deal_type
+  @deal ||= Kbiz::Deal.new("BDD Kickstart London 2013", "K-202-LON-PC", Kbiz::MoneyNotSpecified.new, nil, {}).with_new_deal_type(deal_type)
+end
+
 Given(/^a deal type with a vacancy$/) do
-  @deal = Kbiz::Deal.new("BDD Kickstart London 2013", "K-202-LON-PC", Kbiz::MoneyNotSpecified.new, nil, {}).with_new_deal_type(deal_type)
+  deal_with_deal_type
 end
 
 When(/^I assign a team member to it$/) do
@@ -12,29 +16,32 @@ Then(/^the vacancy is filled$/) do
 end
 
 Given(/^a deal type with a assigned role$/) do
-  pending # express the regexp above with the code you wish you had
+  @team_member = Kbiz::TeamMember.new("chrismdp")
+  @deal = deal_with_deal_type.assign(@team_member, role)
 end
 
 When(/^I change the team member assigned to it$/) do
-  pending # express the regexp above with the code you wish you had
+  @another_team_member = Kbiz::TeamMember.new("mattwynne")
+  @deal = deal_with_deal_type.assign(@another_team_member, role)
 end
 
 Then(/^the role is updated$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(@deal.assignment_for(role)).to eq(Kbiz::Assignment.new(@another_team_member))
 end
 
 When(/^I remove the team member from the role$/) do
-  pending # express the regexp above with the code you wish you had
+  @deal = deal_with_deal_type.remove_assignation(role)
 end
 
 Then(/^the role is vacant$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(@deal.assignment_for(role)).to eq(Kbiz::VacantAssignment.new)
 end
 
 When(/^I change the deal type for the deal$/) do
-  pending # express the regexp above with the code you wish you had
+  @new_deal_type = Kbiz::DealType.new("New type of deal", {})
+  @deal = deal_with_deal_type.with_new_deal_type(@new_deal_type)
 end
 
 Then(/^all the roles are vacant again$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(@deal.assignments).to eq({})
 end
