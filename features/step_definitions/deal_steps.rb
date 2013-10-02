@@ -7,18 +7,18 @@ Then(/^the deal is created$/) do
 end
 
 When(/^I create a deal without a name$/) do
-  @deal = Kbiz::Deal.new(nil, "K-202-LON-PC") rescue nil
+  @deal = Kbiz::Deal.new(nil, "K-202-LON-PC", Kbiz::Money.new(2300)) rescue nil
 end
 
 Then(/^I get an error$/) do
-  expect(@deal).to be_nil
 end
 
 Then(/^the deal isn't created$/) do
+  expect(@deal).to be_nil
 end
 
 When(/^I create a deal without a tracking identifier$/) do
-  @deal = Kbiz::Deal.new("BDD Kickstart London 2013", "") rescue nil
+  @deal = Kbiz::Deal.new("BDD Kickstart London 2013", "", Kbiz::Money.new(4000)) rescue nil
 end
 
 When(/^I create a deal without revenue specified$/) do
