@@ -13,7 +13,7 @@ Feature: Deal types
     When I add a role with a 5% stake
     Then the stake should be listed
     And the stake list is incomplete with 95% left to assign
-    When I add a another role with a 95% stake
+    When I add another role with a 95% stake
     Then the stake should be listed
     And the stake list is complete as the stakes now total 100%
 
