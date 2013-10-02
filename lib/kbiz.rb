@@ -1,0 +1,1 @@
+require 'kbiz/app'
