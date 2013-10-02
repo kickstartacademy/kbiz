@@ -17,6 +17,5 @@ module Kbiz
     it 'handles MoneyNotSpecified by returning 0 for those' do
       DealsList.new([ deal1, not_specified ]).revenue.should == Money.new(100)
     end
-
   end
 end
