@@ -11,6 +11,8 @@ module Kbiz
       self.class.new(name, roles.merge(role => stake))
     end
 
+    attr :roles
+
     def role_count
       roles.size
     end
