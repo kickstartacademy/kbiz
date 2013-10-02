@@ -22,6 +22,10 @@ module Kbiz
     def +(other)
       Stake.new(@percentage_hundredths + other.percentage_hundredths)
     end
+
+    def slice_of(money)
+      Money.new(money.pence * @percentage_hundredths / 10000)
+    end
   end
 
   class WagesInsteadOfStake

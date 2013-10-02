@@ -8,4 +8,6 @@ require 'kbiz/stake'
 require 'kbiz/assignment'
 require 'kbiz/team_member'
 
+require 'kbiz/earning_reporter'
+
 require 'kbiz/app'

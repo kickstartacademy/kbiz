@@ -3,6 +3,10 @@ module Kbiz
     def ==(other)
       other.kind_of?(VacantAssignment)
     end
+
+    def assigned_to?(team_member)
+      false
+    end
   end
 
   class Assignment
@@ -11,6 +15,10 @@ module Kbiz
 
     def ==(other)
       other.team_member == @team_member
+    end
+
+    def assigned_to?(team_member)
+      @team_member == team_member
     end
   end
 end

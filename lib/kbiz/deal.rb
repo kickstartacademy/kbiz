@@ -7,7 +7,8 @@ module Kbiz
       raise ArgumentError if @name.nil? || @name == ''
       raise ArgumentError if @identifier.nil? || @identifier == ''
     end
-    attr :assignments, :revenue
+
+    attr :assignments, :revenue, :deal_type
 
     def assignment_count
       @assignments.size
@@ -27,6 +28,12 @@ module Kbiz
 
     def assignment_for(role)
       assignments[role]
+    end
+
+    def roles_assigned_to(team_member)
+      assignments.select do |role, assignment|
+        assignment.assigned_to?(team_member)
+      end.map(&:first)
     end
 
     private

@@ -40,6 +40,10 @@ module Kbiz
         expect(with_roles.assign(team_member, role).assignment_for(role)).to eq(Assignment.new(team_member))
       end
 
+      it 'returns the roles assigned to a team member' do
+        expect(with_roles.assign(team_member, role).roles_assigned_to(team_member)).to eq([role])
+      end
+
       it 'allows the removal of an assignment' do
         expect(with_roles.assign(team_member, role).remove_assignation(role).assignments).
           to eq(with_roles.assignments)

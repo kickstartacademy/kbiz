@@ -17,6 +17,12 @@ module Kbiz
       roles.size
     end
 
+    def total_stake_for_roles(included_roles)
+      roles.select do |role, stake|
+        included_roles.include?(role)
+      end.map(&:last).inject(Stake.new(0), :+)
+    end
+
     def total_stake_assigned
       roles.values.inject(Stake.new(0), :+)
     end

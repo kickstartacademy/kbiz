@@ -1,6 +1,12 @@
 module Kbiz
   class Money
     include Kbiz.initializer(:pence)
+
+    attr :pence
+
+    def ==(other)
+      other.pence == @pence
+    end
   end
 
   class MoneyNotSpecified

@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'stake'
+require 'money'
 
 module Kbiz
   describe Stake do
@@ -20,6 +21,10 @@ module Kbiz
 
     it 'can add stakes together' do
       expect(Stake.new(100) + Stake.new(90)).to eq(Stake.new(190))
+    end
+
+    it 'can slice a money by itself' do
+      expect(Stake.new(5000).slice_of(Money.new(1000))).to eq(Money.new(500))
     end
   end
 end
